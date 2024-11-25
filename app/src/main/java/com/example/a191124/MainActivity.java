@@ -36,25 +36,29 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(sharedPreferences.getString("userprint","no input"));
         Button btn =findViewById(R.id.button);
 
+        EditText etd = findViewById(R.id.edi);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name = etd.getText().toString();
                 new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Are you sure darling")
-                        .setMessage("just make sure this is what you wanttt")
-                        .setPositiveButton("Yes",null)
-                        .setNegativeButton("I regret", new DialogInterface.OnClickListener() {
+                        .setTitle("Wow")
+                        .setMessage("Awesome")
+                        .setNegativeButton("Cancel",null)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(MainActivity.this,"Not listening!",Toast.LENGTH_LONG)
+                                Toast.makeText(MainActivity.this,"You wrote " + name ,Toast.LENGTH_LONG)
                                         .show();
                             }
                         })
                         .show();
 
-                EditText etd = findViewById(R.id.edi);
-                String name = etd.getText().toString();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
 
                 //put data into shared preferences
                 editor.putString("userprint", name);

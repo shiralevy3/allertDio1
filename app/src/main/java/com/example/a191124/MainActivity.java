@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String name = etd.getText().toString();
                 new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Wow")
+                        .setTitle("Wow!")
                         .setMessage("Awesome")
                         .setNegativeButton("Cancel",null)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
